@@ -18,7 +18,7 @@ class BuildReleaseTests(unittest.TestCase):
                 path.write_text("synthetic public file", encoding="utf8")
             component = root / "custom_components/wolflink_local"
             component.mkdir(parents=True, exist_ok=True)
-            for name in ("INSTALLATION.md", "BESCHREIBUNG.md"):
+            for name in ("INSTALLATION.md", "BESCHREIBUNG.md", "CHANGELOG.md", "TESTHINWEISE.md"):
                 (component / name).write_text("synthetic public instructions", encoding="utf8")
             assets = component / "frontend"
             assets.mkdir()
@@ -48,11 +48,11 @@ class BuildReleaseTests(unittest.TestCase):
                 self.assertTrue(
                     all(
                         name.startswith("custom_components/wolflink_local/")
-                        or name in ("INSTALLATION.md", "BESCHREIBUNG.md")
+                        or name in ("INSTALLATION.md", "BESCHREIBUNG.md", "CHANGELOG.md", "TESTHINWEISE.md")
                         for name in package.namelist()
                     )
                 )
-                for name in ("INSTALLATION.md", "BESCHREIBUNG.md"):
+                for name in ("INSTALLATION.md", "BESCHREIBUNG.md", "CHANGELOG.md", "TESTHINWEISE.md"):
                     self.assertEqual(package.read(name), package.read("custom_components/wolflink_local/" + name))
                 self.assertFalse(
                     any("diagnostics" in name for name in package.namelist())

@@ -1,9 +1,15 @@
-# WolfLink local installieren
+# WolfLink local 0.3.0b1 installieren
 
 ## Voraussetzungen
 
 - Home Assistant 2026.10.1 als geprüfter Entwicklungsstand.
 - Für Lokal: unterstütztes ISM7 im eigenen Netzwerk, Modul-IP und Modulpasswort. Lokal geprüft: CGB-2/CGW-2 mit einem BM-2. Andere Anlagen sind nicht vollständig geprüft.
+
+## Gleichbleibende IP-Adresse empfohlen
+
+Am einfachsten im Router eine **DHCP-Reservierung** für das ISM7 anlegen (oft „diesem Gerät immer dieselbe IPv4-Adresse zuweisen“). So bleibt die bei der Einrichtung eingetragene Modul-IP auch nach Router- oder Modulneustarts gleich.
+
+Alternativ eine feste IP-Adresse am Modul einstellen. Sie muss zum eigenen Subnetz passen, darf nicht anderweitig vergeben sein und muss im DHCP-Server passend ausgeschlossen oder reserviert werden. Nicht unkoordiniert eine Adresse aus dem dynamischen DHCP-Bereich verwenden. Eine DHCP-Reservierung ist für die meisten Heimnetze die einfachere Wahl.
 
 ## Neuinstallation
 
@@ -20,10 +26,6 @@ Kein zusätzliches Kopieren nach `www`, kein HACS und kein manuelles Dashboard e
 ## Schreibzugriff freigeben
 
 Neue Einträge sind zunächst Read-only. Werte mit der Anlage vergleichen. Zum Freigeben: Einstellungen → Geräte & Dienste → WolfLink local → beim gewünschten Eintrag **Konfigurieren** → Read-only deaktivieren. Eine Änderung durchführen und die Statusrückmeldung abwarten.
-
-## Besonderheiten der lokalen Verbindung
-
-
 
 ## Update
 
@@ -55,3 +57,7 @@ Abfragetakt: 15–900 Sekunden, Standard 60 Sekunden. Das Modul erlaubt nur eine
 ## Wechsel von älteren Paketen
 
 Diese Version verwendet eine neue Integrationsdomain. Beim Wechsel von einem früheren Paket mit anderem Ordnernamen muss die lokale Integration neu eingerichtet werden; bloßes Umbenennen des alten Ordners genügt nicht. Vorher die alte Integration und deren Ordner sichern und die alte Verbindung beenden. Danach die neue lokale Integration einrichten. Eigene Dashboard-Verweise bei Bedarf neu zuordnen.
+
+## Externe Testrunde 0.3.0b1
+
+Bitte zuerst TESTHINWEISE.md lesen. Versionsänderungen stehen in CHANGELOG.md. Für Tests zunächst Read-only verwenden.

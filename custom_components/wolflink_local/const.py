@@ -7,7 +7,7 @@ CONF_POLL_INTERVAL = "poll_interval"
 DEFAULT_POLL_INTERVAL = 60
 MIN_POLL_INTERVAL = 15
 MAX_POLL_INTERVAL = 900
-VERSION = "0.3.0.dev3"
+VERSION = "0.3.0b1"
 
 
 def polling_seconds(entry):

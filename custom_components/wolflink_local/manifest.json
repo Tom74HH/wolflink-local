@@ -1,7 +1,7 @@
 {
   "domain": "wolflink_local",
   "name": "WolfLink local",
-  "version": "0.3.0.dev3",
+  "version": "0.3.0b1",
   "codeowners": [
     "@Tom74HH"
   ],

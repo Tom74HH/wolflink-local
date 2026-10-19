@@ -32,6 +32,8 @@ def package_files(root):
                 "README.md",
                 "INSTALLATION.md",
                 "BESCHREIBUNG.md",
+                "CHANGELOG.md",
+                "TESTHINWEISE.md",
                 "LICENSE",
                 "NOTICE",
                 "WOLF-SCHEMA-QUELLE.json",
@@ -66,7 +68,7 @@ def build(root=None):
     )
     if actual != version:
         raise ValueError("Manifest and const.py versions differ")
-    files = sorted([*package_files(root), *((name, component / name) for name in ("INSTALLATION.md", "BESCHREIBUNG.md"))])
+    files = sorted([*package_files(root), *((name, component / name) for name in ("INSTALLATION.md", "BESCHREIBUNG.md", "CHANGELOG.md", "TESTHINWEISE.md"))])
     for _, source in files:
         if not source.is_file():
             raise FileNotFoundError(source)

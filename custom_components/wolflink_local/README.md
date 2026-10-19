@@ -1,4 +1,4 @@
-# WolfLink local – 0.3.0.dev3
+# WolfLink local – 0.3.0b1
 
 
 Ausführliche Anleitung: [INSTALLATION.md](INSTALLATION.md). Funktionen und Grenzen: [BESCHREIBUNG.md](BESCHREIBUNG.md).

@@ -2,7 +2,7 @@
 
 Lokale Home-Assistant-Integration für WOLF-Heizungen mit ISM7. Unabhängiges Community-Projekt von **Tom74HH**, keine offizielle WOLF-Anwendung.
 
-**Entwicklungsstand 0.3.0.dev3:** Im eigenen System erprobt; weitere Tests mit anderen Anlagen sind willkommen. Prüfe zuerst die Messwerte im Read-only-Modus.
+**Entwicklungsstand 0.3.0b1:** Im eigenen System erprobt; weitere Tests mit anderen Anlagen sind willkommen. Prüfe zuerst die Messwerte im Read-only-Modus.
 
 Datenschutz und sichere Fehlermeldungen: [PRIVACY.md](PRIVACY.md).
 
