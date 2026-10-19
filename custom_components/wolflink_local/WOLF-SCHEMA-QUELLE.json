@@ -1,0 +1,17 @@
+{
+  "asset": "frontend/plant-schema.svg",
+  "author": "Tom74HH project",
+  "created": "2026-10-17",
+  "origin": "Independently drawn technical schematic, with Apache-2.0 MDI fire icon. No manufacturer artwork.",
+  "license": "GPL-3.0",
+  "icon": "brand/icon.svg and brand/icon.png are original project artwork.",
+  "replaced_manufacturer_assets": true,
+  "reviewed_terms": "https://mediacenter.wolfeu.website.svc.wolf.eu/en-de/downloads",
+  "reason": "No sublicense/redistribution permission established for the previous manufacturer artwork.",
+  "design": "Original technical schematic with storage cylinder, heat generator, heating circuit and sensor callouts; independently drawn geometry.",
+  "third_party_icon": {
+    "name": "mdi-fire",
+    "license": "Apache-2.0",
+    "source": "brand/mdi-fire-SOURCE.json"
+  }
+}

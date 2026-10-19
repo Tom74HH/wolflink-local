@@ -1,0 +1,464 @@
+{
+  "template": {
+    "views": [
+      {
+        "title": "Heizung / Warmwasser",
+        "path": "heizung-warmwasser",
+        "icon": "mdi:radiator",
+        "type": "sections",
+        "max_columns": 2,
+        "sections": [
+          {
+            "type": "grid",
+            "column_span": 2,
+            "cards": [
+              {
+                "type": "custom:wolflink-plant-dashboard",
+                "area_cards": [
+                  {
+                    "type": "custom:wolflink-area-card",
+                    "name": "Heizung",
+                    "icon": "mdi:radiator",
+                    "cards": [
+                      {
+                        "type": "custom:wolflink-smartset-dial",
+                        "entity": "@34002600000:number",
+                        "name": "Temperaturanpassung",
+                        "secondary_entity": "@34000100000:sensor",
+                        "secondary_name": "Ø Außentemperatur",
+                        "wolf_role": "wolflink_sollwertkorrektur"
+                      },
+                      {
+                        "type": "custom:wolflink-write-status",
+                        "entity": "@34002900000:select",
+                        "name": "Programmwahl",
+                        "wolf_role": "wolflink_heizungsbetriebsart"
+                      },
+                      {
+                        "type": "heading",
+                        "heading": "Direkter Heizkreis",
+                        "heading_style": "subtitle"
+                      },
+                      {
+                        "type": "grid",
+                        "columns": 2,
+                        "square": false,
+                        "cards": [
+                          {
+                            "type": "custom:wolflink-mode-popup",
+                            "entity": "@22003400000:sensor",
+                            "name": "Partymodus",
+                            "icon": "mdi:party-popper",
+                            "cards": [
+                              {
+                                "type": "markdown",
+                                "content": "Heizung für einen bestimmten Zeitraum im Heizbetrieb laufen lassen."
+                              },
+                              {
+                                "type": "entities",
+                                "show_header_toggle": false,
+                                "entities": [
+                                  {
+                                    "entity": "@draft:party_minutes",
+                                    "name": "Dauer",
+                                    "wolf_role": "system_wolflink_partymodus_dauer"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "markdown",
+                                "content": "**15 Minuten bis 24 Stunden**, in 15-Minuten-Schritten.\n\nErst **Speichern** überträgt die Eingaben an WOLF. Nach HA-Neustart gelten wieder Vorschlagswerte."
+                              },
+                              {
+                                "type": "grid",
+                                "columns": 2,
+                                "square": false,
+                                "cards": [
+                                  {
+                                    "type": "custom:wolflink-write-status",
+                                    "entity": "@22003400000:start",
+                                    "name": "Speichern",
+                                    "compact": true,
+                                    "inner_card": {
+                                      "type": "button",
+                                      "name": "Speichern",
+                                      "entity": "@22003400000:start",
+                                      "icon": "mdi:content-save",
+                                      "show_state": false,
+                                      "tap_action": {
+                                        "action": "perform-action",
+                                        "perform_action": "button.press",
+                                        "target": {
+                                          "entity_id": "@22003400000:start"
+                                        },
+                                        "confirmation": {
+                                          "text": "Partymodus mit diesem Entwurf an WOLF übertragen und nach Bestätigung aktivieren?"
+                                        }
+                                      },
+                                      "icon_height": "32px",
+                                      "wolf_role": "system_wolflink_partymodus_speichern"
+                                    },
+                                    "wolf_role": "system_wolflink_partymodus_speichern"
+                                  },
+                                  {
+                                    "type": "custom:wolflink-write-status",
+                                    "entity": "@22003400000:stop",
+                                    "name": "Beenden",
+                                    "compact": true,
+                                    "inner_card": {
+                                      "type": "button",
+                                      "name": "Beenden",
+                                      "entity": "@22003400000:stop",
+                                      "icon": "mdi:stop-circle-outline",
+                                      "show_state": false,
+                                      "tap_action": {
+                                        "action": "perform-action",
+                                        "perform_action": "button.press",
+                                        "target": {
+                                          "entity_id": "@22003400000:stop"
+                                        },
+                                        "confirmation": {
+                                          "text": "Partymodus an der Anlage beenden?"
+                                        }
+                                      },
+                                      "icon_height": "32px",
+                                      "wolf_role": "system_wolflink_partymodus_beenden"
+                                    },
+                                    "wolf_role": "system_wolflink_partymodus_beenden"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "custom:wolflink-write-status",
+                                "entity": "@22003400000:sensor",
+                                "name": "Anlagenstatus",
+                                "icon": "mdi:eye",
+                                "compact": true,
+                                "wolf_role": "wolflink_partymodus"
+                              }
+                            ],
+                            "wolf_role": "wolflink_partymodus"
+                          },
+                          {
+                            "type": "custom:wolflink-mode-popup",
+                            "entity": "@22003500000:sensor",
+                            "name": "Urlaubsmodus",
+                            "icon": "mdi:beach",
+                            "cards": [
+                              {
+                                "type": "markdown",
+                                "content": "Heizung für einen bestimmten Zeitraum in den Sparbetrieb setzen. Den Endzeitpunkt rechtzeitig vor der Rückkehr wählen."
+                              },
+                              {
+                                "type": "entities",
+                                "show_header_toggle": false,
+                                "entities": [
+                                  {
+                                    "entity": "@draft:holiday_start",
+                                    "name": "Von",
+                                    "wolf_role": "system_wolflink_urlaubsmodus_von"
+                                  },
+                                  {
+                                    "entity": "@draft:holiday_end",
+                                    "name": "Bis",
+                                    "wolf_role": "system_wolflink_urlaubsmodus_bis"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "markdown",
+                                "content": "Erst **Speichern** überträgt die Eingaben an WOLF. Nach HA-Neustart gelten wieder Vorschlagswerte."
+                              },
+                              {
+                                "type": "grid",
+                                "columns": 2,
+                                "square": false,
+                                "cards": [
+                                  {
+                                    "type": "custom:wolflink-write-status",
+                                    "entity": "@22003500000:start",
+                                    "name": "Speichern",
+                                    "compact": true,
+                                    "inner_card": {
+                                      "type": "button",
+                                      "name": "Speichern",
+                                      "entity": "@22003500000:start",
+                                      "icon": "mdi:content-save",
+                                      "show_state": false,
+                                      "tap_action": {
+                                        "action": "perform-action",
+                                        "perform_action": "button.press",
+                                        "target": {
+                                          "entity_id": "@22003500000:start"
+                                        },
+                                        "confirmation": {
+                                          "text": "Urlaubsmodus mit diesem Entwurf an WOLF übertragen und nach Bestätigung aktivieren?"
+                                        }
+                                      },
+                                      "icon_height": "32px",
+                                      "wolf_role": "system_wolflink_urlaubsmodus_speichern"
+                                    },
+                                    "wolf_role": "system_wolflink_urlaubsmodus_speichern"
+                                  },
+                                  {
+                                    "type": "custom:wolflink-write-status",
+                                    "entity": "@22003500000:stop",
+                                    "name": "Beenden",
+                                    "compact": true,
+                                    "inner_card": {
+                                      "type": "button",
+                                      "name": "Beenden",
+                                      "entity": "@22003500000:stop",
+                                      "icon": "mdi:stop-circle-outline",
+                                      "show_state": false,
+                                      "tap_action": {
+                                        "action": "perform-action",
+                                        "perform_action": "button.press",
+                                        "target": {
+                                          "entity_id": "@22003500000:stop"
+                                        },
+                                        "confirmation": {
+                                          "text": "Urlaubsmodus an der Anlage beenden?"
+                                        }
+                                      },
+                                      "icon_height": "32px",
+                                      "wolf_role": "system_wolflink_urlaubsmodus_beenden"
+                                    },
+                                    "wolf_role": "system_wolflink_urlaubsmodus_beenden"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "custom:wolflink-write-status",
+                                "entity": "@22003500000:sensor",
+                                "name": "Anlagenstatus",
+                                "icon": "mdi:eye",
+                                "compact": true,
+                                "wolf_role": "wolflink_urlaubsmodus"
+                              }
+                            ],
+                            "wolf_role": "wolflink_urlaubsmodus"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "custom:wolflink-write-status",
+                        "entity": "@34003500000:number",
+                        "name": "Tagtemperatur",
+                        "compact": true,
+                        "icon": "mdi:thermometer",
+                        "wolf_role": "system_wolflink_heizung_tagtemperatur"
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "@34001100000:sensor",
+                        "name": "Vorlauftemperatur",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "wolf_role": "wolflink_vorlauftemperatur"
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "@34000400000:sensor",
+                        "name": "Anforderung Heizkreis",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "wolf_role": "wolflink_anforderung_heizkreis"
+                      },
+                      {
+                        "type": "custom:wolflink-mode-popup",
+                        "entity": "@34001600000:select",
+                        "name": "Zeitprogramm",
+                        "icon": "mdi:calendar-clock",
+                        "cards": [
+                          {
+                            "type": "markdown",
+                            "content": "## Heizung – Zeitprogramme"
+                          },
+                          {
+                            "type": "custom:wolflink-schedule",
+                            "entity": "@34001600000:select",
+                            "device_id": "@device",
+                            "area": "heating",
+                            "wolf_role": "wolflink_heizungszeitprogramm"
+                          }
+                        ],
+                        "wolf_role": "wolflink_heizungszeitprogramm"
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "@34000500000:sensor",
+                        "name": "Heizkreis-Status",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "wolf_role": "wolflink_heizkreis_status"
+                      }
+                    ],
+                    "grid_options": {
+                      "columns": 12,
+                      "rows": "auto"
+                    }
+                  },
+                  {
+                    "type": "custom:wolflink-area-card",
+                    "name": "Warmwasser",
+                    "icon": "mdi:water-boiler",
+                    "cards": [
+                      {
+                        "type": "custom:wolflink-smartset-dial",
+                        "entity": "@35000900000:number",
+                        "name": "Gewünschte Warmwassertemperatur",
+                        "secondary_entity": "@18000600001:sensor",
+                        "secondary_name": "Warmwassertemperatur",
+                        "wolf_role": "wolflink_warmwasser_solltemperatur"
+                      },
+                      {
+                        "type": "custom:wolflink-write-status",
+                        "entity": "@35001200000:select",
+                        "name": "Programmwahl",
+                        "wolf_role": "wolflink_warmwasserbetriebsart"
+                      },
+                      {
+                        "type": "heading",
+                        "heading": "Warmwasser",
+                        "heading_style": "subtitle"
+                      },
+                      {
+                        "type": "custom:wolflink-write-status",
+                        "entity": "@22004200000:switch",
+                        "compact": true,
+                        "icon": "mdi:water-boiler",
+                        "name": "1x Warmwasser",
+                        "wolf_role": "system_wolflink_warmwasser_1x_warmwasser"
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "@35000100000:sensor",
+                        "name": "Warmwasser-Status",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "wolf_role": "wolflink_warmwasser_status"
+                      },
+                      {
+                        "type": "custom:wolflink-mode-popup",
+                        "entity": "@35000400000:select",
+                        "name": "Zeitprogramm",
+                        "icon": "mdi:calendar-clock",
+                        "cards": [
+                          {
+                            "type": "markdown",
+                            "content": "## Warmwasser – Zeitprogramme"
+                          },
+                          {
+                            "type": "custom:wolflink-schedule",
+                            "entity": "@35000400000:select",
+                            "device_id": "@device",
+                            "area": "hot_water",
+                            "wolf_role": "wolflink_warmwasserzeitprogramm"
+                          }
+                        ],
+                        "wolf_role": "wolflink_warmwasserzeitprogramm"
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "@18015500001:sensor",
+                        "name": "Solltemperatur (Regler)",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "wolf_role": "wolflink_warmwassersolltemperatur"
+                      },
+                      {
+                        "type": "tile",
+                        "entity": "@18005000001:sensor",
+                        "name": "Auslauftemperatur",
+                        "tap_action": {
+                          "action": "more-info"
+                        },
+                        "wolf_role": "wolflink_auslauftemperatur_warmwasser"
+                      }
+                    ],
+                    "grid_options": {
+                      "columns": 12,
+                      "rows": "auto"
+                    }
+                  }
+                ],
+                "grid_options": {
+                  "columns": "full",
+                  "rows": "auto"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sensors": {
+    "warmwassersolltemperatur": "18015500001:sensor",
+    "warmwassertemperatur": "18000600001:sensor",
+    "auslauftemperatur_warmwasser": "18005000001:sensor",
+    "durchfluss_warmwasser": "18001000001:sensor",
+    "1x_warmwasser": "22004200000:sensor",
+    "warmwassersolltemperatur_eingestellt": "35000900000:sensor",
+    "warmwassersolltemperatur_eingestellt_2": "35001400000:sensor",
+    "programmwahl": "35001200000:sensor",
+    "programmwahl_2": "35001500000:sensor",
+    "warmwasser_status": "35000100000:sensor",
+    "zeitprogramm": "35000400000:sensor",
+    "typ": "18014100001:sensor",
+    "betriebsart": "18014200001:sensor",
+    "brennerstatus": "18014300001:sensor",
+    "kesselsolltemperatur": "18015400001:sensor",
+    "kesseltemperatur": "18000500001:sensor",
+    "brenner": "18001600001:sensor",
+    "modulationsgrad": "18001200001:sensor",
+    "drehzahl_heizkreispumpe": "18011000001:sensor",
+    "speicherladepumpe": "18002800001:sensor",
+    "3_wege_ventil": "18002600001:sensor",
+    "anlagendruck": "18005100001:sensor",
+    "aussentemperatur": "18014500001:sensor",
+    "rucklauftemperatur": "18000800001:sensor",
+    "anzahl_brennerstarts": "18003300001:sensor",
+    "brennerbetriebsstunden": "18003500001:sensor",
+    "netzbetriebsstunden": "18003400001:sensor",
+    "erweiterte_statistik_aktiv": "18018000001:sensor",
+    "partymodus": "22003400000:sensor",
+    "urlaubsmodus": "22003500000:sensor",
+    "sollwertkorrektur": "34002600000:sensor",
+    "sollwertkorrektur_2": "34003100000:sensor",
+    "tagtemperatur": "34003500000:sensor",
+    "programmwahl_3": "34002900000:sensor",
+    "programmwahl_4": "34003200000:sensor",
+    "tagtemperatur_2": "34000900000:sensor",
+    "raumtemperatur": "34000000000:sensor",
+    "gemittelte_aussentemperatur": "34000100000:sensor",
+    "vorlauftemperatur": "34001100000:sensor",
+    "anforderung_heizkreis": "34000400000:sensor",
+    "heizkreis_status": "34000500000:sensor",
+    "tagtemperatur_3": "34004000000:sensor",
+    "zeitprogramm_2": "34001600000:sensor",
+    "zhp_heizkreispumpe": "18002500001:sensor",
+    "agf_abgasfuhler": "18005400001:sensor",
+    "energie_heizung": "18018100001:sensor",
+    "energie_warmwasser": "18018200001:sensor",
+    "energie_verbrauch_heute": "18018300001:sensor",
+    "energie_waerme_heute": "18018400001:sensor",
+    "energie_verbrauch_gestern": "18018500001:sensor",
+    "energie_waerme_gestern": "18018600001:sensor",
+    "energie_verbrauch_jahr": "18018700001:sensor",
+    "energie_waerme_jahr": "18018800001:sensor",
+    "energie_verbrauch_vorjahr": "18018900001:sensor",
+    "energie_waerme_vorjahr": "18019000001:sensor",
+    "energie_verbrauch_vorvorjahr": "18019100001:sensor",
+    "energie_waerme_vorvorjahr": "18019200001:sensor",
+    "geraet_firmware_heizung": "18003200001:sensor",
+    "geraet_firmware_bm2": "22013400000:sensor",
+    "geraet_netzstarts": "18014800001:sensor"
+  }
+}

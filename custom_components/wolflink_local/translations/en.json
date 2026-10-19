@@ -1,0 +1,352 @@
+{
+  "title": "WolfLink local",
+  "config": {
+    "step": {
+      "reauth_confirm": {
+        "title": "Reauthenticate",
+        "description": "Your existing write permission is preserved when signing in again.",
+        "data": {
+          "password": "Password"
+        }
+      },
+      "local": {
+        "title": "Lokal (ISM7)",
+        "description": "Enter the IP address and module password. No Smartset account required. Initially supports CGB-2 family with BM-2. One simultaneous local connection. Day programs and party/holiday periods are enabled after successful read probes.",
+        "data": {
+          "host": "ISM7 IP address",
+          "password": "Module password"
+        }
+      },
+      "local_confirm": {
+        "title": "Confirm local ISM7",
+        "description": "Login succeeded. Pin this certificate for future connections (SHA256):\n\n{fingerprint}\n\nThe initial connection trusts the device at the specified local address. Legacy TLS settings apply only to this connection. Writes are disabled initially."
+      }
+    },
+    "error": {
+      "invalid_auth": "WOLF authentication failed. Reauthenticate the integration.",
+      "cannot_connect": "Cannot reach WOLF. Writes are never automatically retried.",
+      "no_devices": "No systems are visible for this WOLF account.",
+      "local_unsupported_system": "Local access currently requires one CGB-2 family boiler and one BM-2.",
+      "local_certificate_changed": "ISM7 certificate changed. Connection blocked; verify the device.",
+      "local_feature_unavailable": "This feature is not supported locally yet."
+    },
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "reauth_successful": "Authentication updated. Your existing write permission is preserved."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Connection and write access",
+        "description": "Read-only blocks writes. Only Save sends day schedules and mode periods. Local connections allow a normal polling interval of 15–900 seconds, default 60. Shorter intervals increase traffic. This is an integration limit, not a WOLF specification. Immediate readback checks and connection keepalive remain independent. Pending confirmation temporarily uses 15-second polling. Changes apply without reloading the integration.",
+        "data": {
+          "read_only": "Read-only mode (block writes)",
+          "poll_interval": "Local polling interval (seconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "select": {
+      "heating_mode": {
+        "name": "Heating mode",
+        "state": {
+          "standby": "Standby",
+          "automatic": "Automatic",
+          "permanent": "Permanent",
+          "economy": "Economy"
+        }
+      },
+      "hot_water_mode": {
+        "name": "Hot water mode",
+        "state": {
+          "standby": "Standby",
+          "automatic": "Automatic",
+          "permanent": "Permanent"
+        }
+      },
+      "heating_program": {
+        "name": "Heating time program",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "hot_water_program": {
+        "name": "Hot water time program",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      }
+    },
+    "number": {
+      "hot_water_target": {
+        "name": "Hot water target temperature"
+      },
+      "temperature_offset": {
+        "name": "Temperature setpoint offset"
+      },
+      "party_minutes": {
+        "name": "Party – Duration"
+      },
+      "heating_day_temperature": {
+        "name": "Heating – Day temperature"
+      }
+    },
+    "sensor": {
+      "state": {
+        "state": {
+          "1_x_warmwasser": "1 x DHW",
+          "abgasklappe": "Flue gas damper",
+          "absenkbetrieb": "Setback mode",
+          "absenkstop": "Setback stop",
+          "aktiviert": "Enabled",
+          "antilegionellenfunktion": "Anti-legionella function",
+          "at_abschaltung": "OT shutdown",
+          "at_frostschutz": "OT frost protection",
+          "aus": "Off",
+          "auto": "Automatic",
+          "auto_off_cool": "AutoOffCool",
+          "auto_on_cool": "AutoOnCool",
+          "automatik_aus": "Automatic OFF",
+          "automatik_ein": "Automatic ON",
+          "bereit_keine_ladung": "Ready, not loading",
+          "betrieb_ohne_brenner": "Working without burner",
+          "cooling": "Cooling",
+          "deaktiviert": "Disabled",
+          "dhw_prior": "DHWPrior",
+          "eco": "Eco",
+          "ein": "On",
+          "estrichtrocknung": "Screed drying",
+          "externe_deaktivierung": "External deactivation",
+          "fernschalter_ein": "Remote control enabled",
+          "frost_heizkreis": "Heating circuit frost",
+          "frost_warmwasser": "DHW frost",
+          "frostschutz": "Frost protection",
+          "gasdruck": "Gas pressure",
+          "glt_betrieb": "BMS mode",
+          "gradienten_uberwachung": "Gradient monitoring",
+          "heizbetrieb": "Heating mode",
+          "heizgerat_mit_speicher": "Boiler with cylinder",
+          "heizung": "Heating",
+          "initialisierung": "Initialization",
+          "kalibration": "Calibration",
+          "kalibration_heizbetrieb": "Heating mode calibration",
+          "kalibration_kombibetrieb": "Combi mode calibration",
+          "kalibration_warmwasserbetrieb": "DHW calibration",
+          "kaskadenbetrieb": "Cascade operation",
+          "kombibetrieb": "Combi mode",
+          "kombigerat": "Combi boiler",
+          "kombigerat_mit_solareinbindung": "Combi boiler with solar integration",
+          "mindest_kombizeit": "Minimum combi time",
+          "nachlauf_heizkreispumpe": "Heating circuit pump run-on",
+          "nachspulen": "Post-flush",
+          "nur_heizgerat": "Boiler only",
+          "parallelbetrieb": "Parallel mode",
+          "partymodus": "Party mode",
+          "perm_cooling": "PermCooling",
+          "permanent": "Permanent",
+          "permanentbetrieb": "Permanent mode",
+          "reduzierter_betrieb": "Limited mode",
+          "rt_abschaltung": "RT shutdown",
+          "rt_frostschutz": "RT frost protection",
+          "ruhekontakt": "Rest contact",
+          "schornsteinfeger": "Emissions test",
+          "smart_grid": "SmartGrid",
+          "smart_home": "SmartHome",
+          "softstart": "Soft start",
+          "solarbetrieb": "Solar mode",
+          "sparbetrieb": "Economy mode",
+          "sparen": "Economy",
+          "spreizung_hoch": "dT too wide",
+          "spreizung_kf": "Spread KF",
+          "stabilisierung": "Stabilization",
+          "standby": "standby",
+          "start": "start",
+          "storung": "storung",
+          "taktsperre": "Anti-cycle",
+          "telefonfernschalter": "Telephone remote switch",
+          "test": "Test",
+          "tpw": "TPW",
+          "urlaubsmodus": "Holiday mode",
+          "ventilprufung": "Valve test",
+          "vorspulen": "Entry rinsing",
+          "warmwasser": "DHW",
+          "warmwasser_schnellstart": "DHW quick start",
+          "warmwasserbetrieb": "DHW mode",
+          "warmwassernachlauf": "DHW run-on",
+          "warmwasservorrang": "DHW priority",
+          "zunden": "Ignition"
+        }
+      },
+      "daily_schedule": {
+        "name": "Time windows {area} program {program} {day}"
+      }
+    },
+    "switch": {
+      "one_time_hot_water": {
+        "name": "Hot water – One-time charge"
+      }
+    },
+    "datetime": {
+      "holiday_start": {
+        "name": "Holiday – From"
+      },
+      "holiday_end": {
+        "name": "Holiday – Until"
+      }
+    },
+    "button": {
+      "party_save": {
+        "name": "Party – Save"
+      },
+      "party_stop": {
+        "name": "Party – Stop"
+      },
+      "holiday_save": {
+        "name": "Holiday – Save"
+      },
+      "holiday_stop": {
+        "name": "Holiday – Stop"
+      }
+    }
+  },
+  "exceptions": {
+    "local_clock_mismatch": {
+      "message": "BM-2 date/time differs too much from Home Assistant. Check the controller clock first."
+    },
+    "local_midnight_unsupported": {
+      "message": "A local end time of 24:00 is not supported yet. It is never silently changed to 23:59."
+    },
+    "read_only": {
+      "message": "Read-only mode is enabled. Enable writes explicitly in the integration options."
+    },
+    "not_allowed": {
+      "message": "This parameter is not approved for writing in version 0.1.0."
+    },
+    "not_writable": {
+      "message": "The API does not explicitly permit this user parameter to be written."
+    },
+    "metadata_changed": {
+      "message": "Parameter metadata changed or its limits are unknown. No write was sent."
+    },
+    "invalid_value": {
+      "message": "The value is not an allowed option or does not match the permitted range and step."
+    },
+    "invalid_auth": {
+      "message": "WOLF authentication failed. Reauthenticate the integration."
+    },
+    "cannot_connect": {
+      "message": "Cannot reach WOLF. No write is retried automatically."
+    },
+    "offline": {
+      "message": "WOLF reports this system as offline."
+    },
+    "malformed_response": {
+      "message": "The WOLF API response could not be validated."
+    },
+    "read_failed": {
+      "message": "WOLF rejected the read request."
+    },
+    "write_failed": {
+      "message": "The write could not be confirmed. It may have reached the system; check the actual value before trying again."
+    },
+    "readback_failed": {
+      "message": "The actual value could not be read back. Check the system before trying again."
+    },
+    "readback_mismatch": {
+      "message": "The value read back differs from the requested value. The displayed state comes from the API."
+    },
+    "no_devices": {
+      "message": "No systems are visible for this WOLF account."
+    },
+    "invalid_schedule": {
+      "message": "Invalid day draft. At most three 15-minute-grid windows, start before end, no overlaps; 24:00 only as an end time."
+    },
+    "schedule_unavailable": {
+      "message": "The current time program could not be read."
+    },
+    "schedule_device_not_found": {
+      "message": "No loaded WolfLink device matches this selection."
+    },
+    "invalid_period": {
+      "message": "Invalid period. Use whole minutes and unambiguous local times; end must follow start and be in the future."
+    },
+    "mode_already_active": {
+      "message": "Party or holiday is already active/scheduled or its status is missing. Check the WOLF app and stop the existing mode first."
+    },
+    "period_unconfirmed": {
+      "message": "Period could not be fully read back. No activation command sent. Period fields may have been saved; check the WOLF app."
+    },
+    "schedule_conflict": {
+      "message": "The schedule changed since this draft was loaded. Reload and review your changes."
+    },
+    "local_unsupported_system": {
+      "message": "Local access currently requires one CGB-2 family boiler and one BM-2."
+    },
+    "local_certificate_changed": {
+      "message": "ISM7 certificate changed. Connection blocked; verify the device."
+    },
+    "local_feature_unavailable": {
+      "message": "This feature is not supported locally yet."
+    }
+  },
+  "selector": {
+    "schedule_area": {
+      "options": {
+        "heating": "Heating",
+        "hot_water": "Hot water"
+      }
+    },
+    "schedule_weekday": {
+      "options": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    }
+  },
+  "services": {
+    "get_time_program": {
+      "name": "Read time program",
+      "description": "Read seven days without changing the heating system.",
+      "fields": {
+        "device_id": {
+          "name": "WolfLink device"
+        },
+        "area": {
+          "name": "Area"
+        },
+        "program": {
+          "name": "Time program"
+        }
+      }
+    },
+    "preview_time_program_day": {
+      "name": "Preview day schedule",
+      "description": "Validate and sort a draft. It is never sent to WOLF.",
+      "fields": {
+        "area": {
+          "name": "Area"
+        },
+        "program": {
+          "name": "Time program"
+        },
+        "weekday": {
+          "name": "Weekday"
+        },
+        "windows": {
+          "name": "Time windows (start and end as HH:mm)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "domain": "wolflink_local",
+  "name": "WolfLink local",
+  "version": "0.3.0.dev3",
+  "codeowners": [
+    "@Tom74HH"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Tom74HH/wolflink-local#readme",
+  "integration_type": "hub",
+  "iot_class": "local_polling",
+  "requirements": [],
+  "dependencies": [
+    "frontend",
+    "lovelace"
+  ],
+  "issue_tracker": "https://github.com/Tom74HH/wolflink-local/issues"
+}

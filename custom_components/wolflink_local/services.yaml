@@ -1,0 +1,113 @@
+get_time_program:
+  name: Read time program
+  description: Read the seven days of one heating or hot-water program. No write request is sent.
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: wolflink_local
+    area:
+      required: true
+      selector:
+        select:
+          translation_key: schedule_area
+          options:
+            - heating
+            - hot_water
+    program:
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 3
+          step: 1
+          mode: box
+preview_time_program_day:
+  name: Preview day schedule
+  description: Validate a day draft and return its serialization. It is never transmitted to WOLF.
+  fields:
+    area:
+      required: true
+      selector:
+        select:
+          translation_key: schedule_area
+          options:
+            - heating
+            - hot_water
+    program:
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 3
+          step: 1
+          mode: box
+    weekday:
+      required: true
+      selector:
+        select:
+          translation_key: schedule_weekday
+          options:
+            - monday
+            - tuesday
+            - wednesday
+            - thursday
+            - friday
+            - saturday
+            - sunday
+    windows:
+      required: true
+      example: '[{"start": "06:00", "end": "09:00"}]'
+      selector:
+        object:
+          multiple: true
+          label_field: start
+          description_field: end
+          fields:
+            start:
+              label: Start
+              required: true
+              selector:
+                text: {}
+            end:
+              label: Ende
+              required: true
+              selector:
+                text: {}
+
+write_time_program_day:
+  name: Write day schedule
+  description: Validate and write one day, check for concurrent changes and read it back. Does not activate the program.
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: wolflink_local
+    area:
+      required: true
+      selector:
+        select:
+          options: [heating, hot_water]
+    program:
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 3
+          step: 1
+    weekday:
+      required: true
+      selector:
+        select:
+          options: [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+    windows:
+      required: true
+      selector:
+        object: {}
+    expected:
+      required: true
+      description: Previously read serialized day; rejects stale drafts.
+      selector:
+        text: {}

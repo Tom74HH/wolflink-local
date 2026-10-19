@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-label="Eigenes technisches Funktionsschema: Warmwasserspeicher links, Wärmeerzeuger mittig und Heizkreis rechts">
+<defs><linearGradient id="t74-case" x2="0" y2="1"><stop stop-color="#f7f9fc"/><stop offset="1" stop-color="#e3e9f0"/></linearGradient><linearGradient id="t74-store" x2="0" y2="1"><stop stop-color="#edb5ba"/><stop offset=".5" stop-color="#f4ecee"/><stop offset="1" stop-color="#bbdbe9"/></linearGradient><linearGradient id="t74-exchanger"><stop stop-color="#d45d6c"/><stop offset=".5" stop-color="#b995ac"/><stop offset="1" stop-color="#659dbb"/></linearGradient><linearGradient id="t74-heating-flow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ca5264"/><stop offset=".5" stop-color="#ab7b99"/><stop offset="1" stop-color="#548eaf"/></linearGradient></defs>
+<style>.case{fill:url(#t74-case);stroke:#8798a9;stroke-width:1.6}.hot{fill:none;stroke:#ca5264;stroke-width:5;stroke-linejoin:round;stroke-linecap:round}.cold{fill:none;stroke:#548eaf;stroke-width:5;stroke-linejoin:round;stroke-linecap:round}.thin{fill:none;stroke:#8798a9;stroke-width:1.3}.label{font:12px Arial,sans-serif;fill:#52677a}.title{font:600 15px Arial,sans-serif;fill:#294158}.value{font:600 16px Arial,sans-serif;fill:#20384e}.small{font:11px Arial,sans-serif;fill:#52677a}.pump{fill:#fff;stroke:#72889b;stroke-width:2}.pump[data-active="true"]{stroke:#46a16d;stroke-width:3}.pump[data-known="false"]{stroke-dasharray:3 3}.burner[data-active="false"]{opacity:.3;filter:grayscale(1)}.burner[data-known="false"]{opacity:.2}</style>
+<!-- Functional connections: illustrative pipe routing, not a hydraulic installation plan. -->
+<path class="hot" d="M92 420H832M676 420V116Q676 100 692 100H704"/>
+<path class="cold" d="M92 450H832M796 100H806Q822 100 822 116V450"/>
+<!-- Storage cylinder and its load circuit. -->
+<text class="title" x="52" y="63">Warmwasserspeicher</text>
+<rect x="70" y="150" width="112" height="197" rx="25" fill="url(#t74-store)" stroke="#8798a9" stroke-width="1.6"/>
+<ellipse cx="126" cy="166" rx="45" ry="10" class="thin"/>
+<path class="hot" d="M182 203H325"/><path class="cold" d="M182 306H325"/>
+<path d="M182 203H166V195H91v22h66v22H95v22h62v22H95v23h87" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" opacity=".9"/>
+<circle cx="235" cy="203" r="15" class="pump" data-device="speicherladepumpe"/><path d="M241 193l-14 10 14 10z" fill="#72889b"/>
+<text class="small" x="235" y="179" text-anchor="middle">Ladepumpe</text>
+<circle cx="182" cy="266" r="5" fill="#fff" stroke="#8798a9"/><path class="thin" d="M182 266H190"/>
+<text class="small" x="200" y="254">Speichertemperatur</text><text class="value" x="200" y="275" data-live="warmwassertemperatur"/>
+<g transform="translate(45 88)" aria-label="Warmwasserhahn"><path d="M0 27V15H19Q28 15 28 24V28H20V24Q20 22 17 22H8V27Z" fill="#dce7ee" stroke="#71899d" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 15V7M0 7H13" fill="none" stroke="#71899d" stroke-width="2.6" stroke-linecap="round"/><path d="M24 32C24 32 20 37 20 39C20 44 28 44 28 39C28 37 24 32 24 32Z" fill="#ca5264"/></g>
+<text class="small" x="88" y="101">Warmwasser-Auslauf</text><text class="value" x="88" y="122" data-live="auslauftemperatur_warmwasser"/>
+<!-- Exhaust outlet: schematic, no measured exhaust flow. -->
+<path d="M474 65V31Q474 19 486 19H540" fill="none" stroke="#8c9aa7" stroke-width="17" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M474 65V31Q474 19 486 19H540" fill="none" stroke="#e5ebf0" stroke-width="11" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M537 10V28M468 48H480" stroke="#7c8d9d" stroke-width="2"/>
+<path class="thin" d="M512 19H545V28H550"/><circle cx="512" cy="19" r="4" fill="#fff" stroke="#8798a9"/>
+<text class="small" x="560" y="21">Abgastemperatur</text><text class="value" x="560" y="43" data-live="agf_abgasfuhler"/>
+<!-- Boiler: independent symbols and geometry. -->
+<rect class="case" x="325" y="65" width="265" height="282" rx="14"/>
+<text class="title" x="343" y="92">Wärmeerzeuger</text><text class="small" x="343" y="110">Brennwertgerät</text>
+<!-- Draw continuous internal pipes above the casing and below component symbols. -->
+<path class="hot" d="M430 183V420M325 203H355V238M390 251H430"/>
+<path class="cold" d="M527 183V450M325 306H365V303M390 289H527"/>
+<rect x="414" y="140" width="120" height="43" rx="5" fill="url(#t74-exchanger)" stroke="#8798a9"/>
+<path d="M430 145l-8 33m24-33-8 33m24-33-8 33m24-33-8 33m24-33-8 33m24-33-8 33" stroke="#ffffff" stroke-width="2" opacity=".65"/>
+<g class="burner" data-device="brenner" transform="translate(450 185) scale(2.05)"><path fill="#e98943" d="M17.66 11.2C17.43 10.9 17.15 10.64 16.89 10.38C16.22 9.78 15.46 9.35 14.82 8.72C13.33 7.26 13 4.85 13.95 3C13 3.23 12.17 3.75 11.46 4.32C8.87 6.4 7.85 10.07 9.07 13.22C9.11 13.32 9.15 13.42 9.15 13.55C9.15 13.77 9 13.97 8.8 14.05C8.57 14.15 8.33 14.09 8.14 13.93C8.08 13.88 8.04 13.83 8 13.76C6.87 12.33 6.69 10.28 7.45 8.64C5.78 10 4.87 12.3 5 14.47C5.06 14.97 5.12 15.47 5.29 15.97C5.43 16.57 5.7 17.17 6 17.7C7.08 19.43 8.95 20.67 10.96 20.92C13.1 21.19 15.39 20.8 17.03 19.32C18.86 17.66 19.5 15 18.56 12.72L18.43 12.46C18.22 12 17.66 11.2 17.66 11.2M14.5 17.5C14.22 17.74 13.76 18 13.4 18.1C12.28 18.5 11.16 17.94 10.5 17.28C11.69 17 12.4 16.12 12.61 15.23C12.78 14.43 12.46 13.77 12.33 13C12.21 12.26 12.23 11.63 12.5 10.94C12.69 11.32 12.89 11.7 13.13 12C13.9 13 15.11 13.44 15.37 14.8C15.41 14.94 15.43 15.08 15.43 15.23C15.46 16.05 15.1 16.95 14.5 17.5H14.5Z"/></g>
+<text class="small" x="462" y="251">Brenner</text>
+<!-- Functional plate exchanger for the storage load circuit. -->
+<rect x="350" y="238" width="40" height="65" rx="4" fill="url(#t74-exchanger)" stroke="#8798a9"/>
+<path d="M360 243l-5 55m15-55-5 55m15-55-5 55" stroke="#fff" stroke-width="2" opacity=".7"/>
+
+<g transform="translate(430 251)"><circle r="12" fill="#fff" stroke="#8798a9"/><path d="M0 0l-8-6v12zM0 0l8-6v12zM0 0l-6 8H6z" fill="#72889b"/></g><text class="small" x="444" y="268">Umschaltventil</text>
+<circle class="pump" cx="527" cy="306" r="16" data-device="zhp_heizkreispumpe"/><path d="M517 312l10-18 10 18z" fill="#72889b"/>
+<text class="small" x="548" y="319">Heizkreispumpe</text>
+<!-- Sensors: tagged to the functional measurement locations. -->
+<path class="thin" d="M414 158H393V126H310"/><circle cx="414" cy="158" r="4" fill="#fff" stroke="#8798a9"/>
+<text class="small" x="240" y="102">Kessel</text><text class="value" x="240" y="123" data-live="kesseltemperatur"/>
+<path class="thin" d="M527 212H600"/><circle cx="527" cy="212" r="4" fill="#fff" stroke="#8798a9"/>
+<text class="small" x="610" y="207">Rücklauf</text><text class="value" x="610" y="229" data-live="rucklauftemperatur"/>
+<text class="label" x="345" y="368">Anlagendruck</text><text class="value" x="345" y="391" data-live="anlagendruck"/>
+
+<!-- External heating circuit. -->
+<text class="title" x="670" y="63">Heizkreis</text>
+<rect x="704" y="78" width="92" height="44" rx="5" fill="#f1f5f8" stroke="#8798a9"/><path d="M714 85v30m14-30v30m14-30v30m14-30v30m14-30v30m14-30v30" stroke="url(#t74-heating-flow)" stroke-width="4"/>
+<path class="thin" d="M676 158H713"/><circle cx="676" cy="158" r="4" fill="#fff" stroke="#8798a9"/>
+<text class="small" x="720" y="160">Vorlauf</text><text class="value" x="720" y="182" data-live="vorlauftemperatur"/>
+<path d="M767 59C751 59 744 43 755 32C750 18 765 8 778 14C786 1 807 0 818 12C832 3 850 8 854 21C869 13 889 21 889 35C904 43 895 59 880 59Z" fill="#eef5f9" stroke="#a4bacb" stroke-width="1.4"/>
+<text class="label" x="823" y="29" text-anchor="middle">Außentemperatur</text><text class="value" x="823" y="49" text-anchor="middle" data-live="aussentemperatur"/>
+<text class="small" x="702" y="371">Heizkreis-Zustand</text><text class="small" x="702" y="390" data-live="heizkreis_status"/>
+
+<!-- Arrowheads show the schematic operating direction, not measured flow. -->
+<g fill="#ca5264"><path d="M430 383l-7-12h14z"/><path d="M676 315l-7 12h14z"/><path d="M297 203l12-7v14z"/><path d="M402 251l12-7v14z"/><path d="M610 420l-12-7v14z"/></g>
+<g fill="#548eaf"><path d="M527 355l-7 12h14z"/><path d="M822 324l-7-12h14z"/><path d="M270 306l-12-7v14z"/><path d="M470 289l-12-7v14z"/><path d="M610 450l12-7v14z"/></g>
+<g fill="#ca5264" stroke="#fff" stroke-width="1"><circle cx="430" cy="420" r="4"/><circle cx="676" cy="420" r="4"/></g>
+<g fill="#548eaf" stroke="#fff" stroke-width="1"><circle cx="527" cy="450" r="4"/><circle cx="822" cy="450" r="4"/></g>
+<text class="small" x="100" y="413">Vorlauf</text><text class="small" x="100" y="473">Rücklauf</text>
+<text class="small" x="450" y="496" text-anchor="middle">Funktionsschema · Pfeile: schematische Richtung, kein gemessener Durchfluss</text>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "icon": "mdi-fire",
+  "source": "https://github.com/Templarian/MaterialDesign-SVG/blob/master/svg/fire.svg",
+  "license": "Apache-2.0",
+  "license_source": "https://github.com/Templarian/MaterialDesign-SVG/blob/master/LICENSE",
+  "changes": "Orange fill, scale and position inside original project schematic.",
+  "retrieved": "2026-10-17"
+}

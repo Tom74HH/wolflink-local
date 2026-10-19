@@ -1,0 +1,352 @@
+{
+  "title": "WolfLink local",
+  "config": {
+    "step": {
+      "reauth_confirm": {
+        "title": "Erneut anmelden",
+        "description": "Die bisherige Schreibfreigabe bleibt bei erneuter Anmeldung erhalten.",
+        "data": {
+          "password": "Passwort"
+        }
+      },
+      "local": {
+        "title": "Lokal (ISM7)",
+        "description": "IP-Adresse und Modulpasswort eingeben. Kein Smartset-Konto erforderlich. Unterstützt zunächst CGB-2-Familie mit BM-2. Nur eine gleichzeitige lokale Verbindung möglich. Zeitfenster und Party-/Urlaubszeiträume werden nach erfolgreicher Leseprüfung freigeschaltet.",
+        "data": {
+          "host": "ISM7 IP-Adresse",
+          "password": "Modulpasswort"
+        }
+      },
+      "local_confirm": {
+        "title": "Lokales ISM7 bestätigen",
+        "description": "Anmeldung erfolgreich. Dieses Zertifikat wird für künftige Verbindungen fest hinterlegt (SHA256):\n\n{fingerprint}\n\nDie erste Verbindung vertraut dem Gerät im angegebenen lokalen Netz. Die älteren TLS-Einstellungen gelten nur für diesen Zugang. Schreibzugriffe sind zunächst gesperrt."
+      }
+    },
+    "error": {
+      "invalid_auth": "Die WOLF-Anmeldung ist fehlgeschlagen. Bitte die Integration erneut authentifizieren.",
+      "cannot_connect": "WOLF-Verbindung nicht erreichbar. Schreibbefehle werden nicht automatisch wiederholt.",
+      "no_devices": "Für dieses WOLF-Konto wurden keine Anlagen gefunden.",
+      "local_unsupported_system": "Lokaler Zugang unterstützt derzeit genau einen CGB-2-Wärmeerzeuger mit BM-2.",
+      "local_certificate_changed": "ISM7-Zertifikat hat sich geändert. Verbindung gesperrt; Gerät prüfen.",
+      "local_feature_unavailable": "Diese Funktion ist lokal noch nicht unterstützt."
+    },
+    "abort": {
+      "already_configured": "Dieses Konto ist bereits eingerichtet.",
+      "reauth_successful": "Anmeldung aktualisiert. Die bisherige Schreibfreigabe bleibt erhalten."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Verbindung und Schreibfreigabe",
+        "description": "Read-only sperrt Schreibzugriffe. Erst Speichern überträgt Zeitfenster und Moduszeiträume. Bei lokaler Verbindung lässt sich die normale Statusabfrage einstellen: 15–900 Sekunden, Standard 60. Kleinere Werte erzeugen mehr Abfragen. Das ist eine Integrationsgrenze, keine WOLF-Vorgabe. Direkte Rückleseprüfungen nach Änderungen und Verbindungs-Keepalive laufen unabhängig davon. Solange eine Bestätigung aussteht, wird vorübergehend alle 15 Sekunden abgefragt. Änderungen gelten ohne Neuladen der Integration.",
+        "data": {
+          "read_only": "Read-only-Modus (Schreiben sperren)",
+          "poll_interval": "Lokales Polling-Intervall (Sekunden)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "select": {
+      "heating_mode": {
+        "name": "Heizungsbetriebsart",
+        "state": {
+          "standby": "Standby",
+          "automatic": "Automatik",
+          "permanent": "Permanent",
+          "economy": "Sparen"
+        }
+      },
+      "hot_water_mode": {
+        "name": "Warmwasserbetriebsart",
+        "state": {
+          "standby": "Standby",
+          "automatic": "Automatik",
+          "permanent": "Permanent"
+        }
+      },
+      "heating_program": {
+        "name": "Heizungszeitprogramm",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "hot_water_program": {
+        "name": "Warmwasserzeitprogramm",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      }
+    },
+    "number": {
+      "hot_water_target": {
+        "name": "Warmwasser-Solltemperatur"
+      },
+      "temperature_offset": {
+        "name": "Sollwertkorrektur"
+      },
+      "party_minutes": {
+        "name": "Partymodus – Dauer"
+      },
+      "heating_day_temperature": {
+        "name": "Heizung – Tagtemperatur"
+      }
+    },
+    "sensor": {
+      "state": {
+        "state": {
+          "1_x_warmwasser": "1x Warmwasser",
+          "abgasklappe": "Abgasklappe",
+          "absenkbetrieb": "Absenkbetrieb",
+          "absenkstop": "Absenkstop",
+          "aktiviert": "Aktiviert",
+          "antilegionellenfunktion": "Antilegionellenfunktion",
+          "at_abschaltung": "AT Abschaltung",
+          "at_frostschutz": "AT Frostschutz",
+          "aus": "Aus",
+          "auto": "Auto",
+          "auto_off_cool": "AutoOffCool",
+          "auto_on_cool": "AutoOnCool",
+          "automatik_aus": "Automatik aus",
+          "automatik_ein": "Automatik ein",
+          "bereit_keine_ladung": "Bereit, keine Ladung",
+          "betrieb_ohne_brenner": "Betrieb ohne Brenner",
+          "cooling": "Cooling",
+          "deaktiviert": "Deaktiviert",
+          "dhw_prior": "DHWPrior",
+          "eco": "Eco",
+          "ein": "Ein",
+          "estrichtrocknung": "Estrichtrocknung",
+          "externe_deaktivierung": "Externe Deaktivierung",
+          "fernschalter_ein": "Fernschalter ein",
+          "frost_heizkreis": "Frost Heizkreis",
+          "frost_warmwasser": "Frost Warmwasser",
+          "frostschutz": "Frostschutz",
+          "gasdruck": "Gasdruck",
+          "glt_betrieb": "GLT-Betrieb",
+          "gradienten_uberwachung": "Gradienten Überwachung",
+          "heizbetrieb": "Heizbetrieb",
+          "heizgerat_mit_speicher": "Heizgerät mit Speicher",
+          "heizung": "Heizung",
+          "initialisierung": "Initialisierung",
+          "kalibration": "Kalibration",
+          "kalibration_heizbetrieb": "Kalibration Heizbetrieb",
+          "kalibration_kombibetrieb": "Kalibration Kombibetrieb",
+          "kalibration_warmwasserbetrieb": "Kalibration Warmwasserbetrieb",
+          "kaskadenbetrieb": "Kaskadenbetrieb",
+          "kombibetrieb": "Kombibetrieb",
+          "kombigerat": "Kombigerät",
+          "kombigerat_mit_solareinbindung": "Kombigerät mit Solareinbindung",
+          "mindest_kombizeit": "Mindest-Kombizeit",
+          "nachlauf_heizkreispumpe": "Nachlauf Heizkreispumpe",
+          "nachspulen": "Nachspülen",
+          "nur_heizgerat": "Nur Heizgerät",
+          "parallelbetrieb": "Parallelbetrieb",
+          "partymodus": "Partymodus",
+          "perm_cooling": "PermCooling",
+          "permanent": "Permanent",
+          "permanentbetrieb": "Permanentbetrieb",
+          "reduzierter_betrieb": "Reduzierter Betrieb",
+          "rt_abschaltung": "RT Abschaltung",
+          "rt_frostschutz": "RT Frostschutz",
+          "ruhekontakt": "Ruhekontakt",
+          "schornsteinfeger": "Schornsteinfeger",
+          "smart_grid": "SmartGrid",
+          "smart_home": "SmartHome",
+          "softstart": "Softstart",
+          "solarbetrieb": "Solarbetrieb",
+          "sparbetrieb": "Sparbetrieb",
+          "sparen": "Sparen",
+          "spreizung_hoch": "Spreizung hoch",
+          "spreizung_kf": "Spreizung KF",
+          "stabilisierung": "Stabilisierung",
+          "standby": "Standby",
+          "start": "Start",
+          "storung": "Störung",
+          "taktsperre": "Taktsperre",
+          "telefonfernschalter": "Telefonfernschalter",
+          "test": "Test",
+          "tpw": "TPW",
+          "urlaubsmodus": "Urlaubsmodus",
+          "ventilprufung": "Ventilprüfung",
+          "vorspulen": "Vorspülen",
+          "warmwasser": "Warmwasser",
+          "warmwasser_schnellstart": "Warmwasser Schnellstart",
+          "warmwasserbetrieb": "Warmwasserbetrieb",
+          "warmwassernachlauf": "Warmwassernachlauf",
+          "warmwasservorrang": "Warmwasservorrang",
+          "zunden": "Zünden"
+        }
+      },
+      "daily_schedule": {
+        "name": "Zeitfenster {area} Programm {program} {day}"
+      }
+    },
+    "switch": {
+      "one_time_hot_water": {
+        "name": "Warmwasser – 1x Warmwasser"
+      }
+    },
+    "datetime": {
+      "holiday_start": {
+        "name": "Urlaubsmodus – Von"
+      },
+      "holiday_end": {
+        "name": "Urlaubsmodus – Bis"
+      }
+    },
+    "button": {
+      "party_save": {
+        "name": "Partymodus – Speichern"
+      },
+      "party_stop": {
+        "name": "Partymodus – Beenden"
+      },
+      "holiday_save": {
+        "name": "Urlaubsmodus – Speichern"
+      },
+      "holiday_stop": {
+        "name": "Urlaubsmodus – Beenden"
+      }
+    }
+  },
+  "exceptions": {
+    "local_clock_mismatch": {
+      "message": "BM-2-Datum oder Uhrzeit weicht zu stark von Home Assistant ab. Bitte zuerst die Anlagenzeit prüfen."
+    },
+    "local_midnight_unsupported": {
+      "message": "24:00 als Ende wird lokal noch nicht unterstützt. Der Wert wird nicht automatisch auf 23:59 geändert."
+    },
+    "read_only": {
+      "message": "Der Read-only-Modus ist aktiv. Schreibzugriffe müssen ausdrücklich in den Integrationsoptionen freigegeben werden."
+    },
+    "not_allowed": {
+      "message": "Dieser Parameter ist in Version 0.1.0 nicht zum Schreiben freigegeben."
+    },
+    "not_writable": {
+      "message": "Die API erlaubt das Schreiben dieses Benutzerparameters nicht ausdrücklich."
+    },
+    "metadata_changed": {
+      "message": "Die Parametermetadaten haben sich geändert oder ihre Grenzen sind unbekannt. Es wurde nicht geschrieben."
+    },
+    "invalid_value": {
+      "message": "Der Wert entspricht keiner zulässigen Auswahl oder verletzt Wertebereich beziehungsweise Schrittweite."
+    },
+    "invalid_auth": {
+      "message": "Die WOLF-Anmeldung ist fehlgeschlagen. Bitte die Integration erneut authentifizieren."
+    },
+    "cannot_connect": {
+      "message": "Die WOLF-Verbindung ist nicht erreichbar. Schreibbefehle werden nicht automatisch wiederholt."
+    },
+    "offline": {
+      "message": "WOLF meldet diese Anlage als offline."
+    },
+    "malformed_response": {
+      "message": "Die Antwort der WOLF-API konnte nicht validiert werden."
+    },
+    "read_failed": {
+      "message": "WOLF hat die Leseabfrage abgelehnt."
+    },
+    "write_failed": {
+      "message": "Der Schreibvorgang konnte nicht bestätigt werden. Er könnte die Anlage erreicht haben. Vor erneutem Versuch den Istwert prüfen."
+    },
+    "readback_failed": {
+      "message": "Der tatsächliche Wert konnte nicht zurückgelesen werden. Vor erneutem Versuch die Anlage prüfen."
+    },
+    "readback_mismatch": {
+      "message": "Der zurückgelesene Wert weicht vom angeforderten Wert ab. Angezeigt wird der API-Istwert."
+    },
+    "no_devices": {
+      "message": "Für dieses WOLF-Konto wurden keine Anlagen gefunden."
+    },
+    "invalid_schedule": {
+      "message": "Ungültiger Tagesentwurf. Höchstens drei Zeitfenster im 15-Minuten-Raster, Start vor Ende, keine Überschneidungen; 24:00 nur als Ende."
+    },
+    "schedule_unavailable": {
+      "message": "Das aktuelle Zeitprogramm konnte nicht gelesen werden."
+    },
+    "schedule_device_not_found": {
+      "message": "Kein geladenes WolfLink-Gerät für diese Auswahl gefunden."
+    },
+    "invalid_period": {
+      "message": "Ungültiger Zeitraum. Ganze Minuten und eindeutige lokale Uhrzeiten verwenden; Ende muss nach Start und in der Zukunft liegen."
+    },
+    "mode_already_active": {
+      "message": "Party oder Urlaub ist bereits aktiv/geplant oder der Status fehlt. Zuerst in der WOLF-App prüfen und den bestehenden Modus beenden."
+    },
+    "period_unconfirmed": {
+      "message": "Zeitraum nicht vollständig zurückgelesen. Kein Aktivierungsbefehl gesendet. Zeitraumfelder könnten gespeichert worden sein; bitte in der WOLF-App prüfen."
+    },
+    "schedule_conflict": {
+      "message": "Die Zeiten wurden zwischenzeitlich geändert. Neu laden und Änderungen erneut prüfen."
+    },
+    "local_unsupported_system": {
+      "message": "Lokaler Zugang unterstützt derzeit genau einen CGB-2-Wärmeerzeuger mit BM-2."
+    },
+    "local_certificate_changed": {
+      "message": "ISM7-Zertifikat hat sich geändert. Verbindung gesperrt; Gerät prüfen."
+    },
+    "local_feature_unavailable": {
+      "message": "Diese Funktion ist lokal noch nicht unterstützt."
+    }
+  },
+  "selector": {
+    "schedule_area": {
+      "options": {
+        "heating": "Heizung",
+        "hot_water": "Warmwasser"
+      }
+    },
+    "schedule_weekday": {
+      "options": {
+        "monday": "Montag",
+        "tuesday": "Dienstag",
+        "wednesday": "Mittwoch",
+        "thursday": "Donnerstag",
+        "friday": "Freitag",
+        "saturday": "Samstag",
+        "sunday": "Sonntag"
+      }
+    }
+  },
+  "services": {
+    "get_time_program": {
+      "name": "Zeitprogramm lesen",
+      "description": "Liest sieben Tage. Ändert keine Anlagenwerte.",
+      "fields": {
+        "device_id": {
+          "name": "WolfLink-Gerät"
+        },
+        "area": {
+          "name": "Bereich"
+        },
+        "program": {
+          "name": "Zeitprogramm"
+        }
+      }
+    },
+    "preview_time_program_day": {
+      "name": "Tagesentwurf prüfen",
+      "description": "Prüft und sortiert einen Entwurf. Er wird nicht an WOLF übertragen.",
+      "fields": {
+        "area": {
+          "name": "Bereich"
+        },
+        "program": {
+          "name": "Zeitprogramm"
+        },
+        "weekday": {
+          "name": "Wochentag"
+        },
+        "windows": {
+          "name": "Zeitfenster (Start und Ende als HH:mm)"
+        }
+      }
+    }
+  }
+}

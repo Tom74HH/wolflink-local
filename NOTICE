@@ -1,0 +1,12 @@
+WolfLink local
+
+Sensor descriptions, state mappings and architecture are adapted from Home Assistant Core 2026.10.1, homeassistant/components/wolflink.
+Copyright The Home Assistant Authors. Licensed under Apache License 2.0.
+https://github.com/home-assistant/core/tree/2026.10.1/homeassistant/components/wolflink
+
+The integration icon (brand/icon.svg, brand/icon.png) and functional diagram (frontend/plant-schema.svg and its embedded JavaScript representation) are original project artwork, provided under GPL-3.0 as part of this combined distribution. No original WOLF logo, portal diagram or embedded manufacturer bitmap is included in these assets. Provenance is recorded in WOLF-SCHEMA-QUELLE.json.
+WOLF and product names identify compatible devices. This is an independent integration, not an official WOLF application or endorsement.
+
+The native ISM7 backend (local_api.py and local/ resources) is based on protocol and conversion references from zivillian/ism7mqtt, licensed under GNU GPL version 3. The combined distribution is provided under GPL-3.0 terms, with original Apache-2.0 notices retained for the existing integration, Home Assistant adaptations and frontend. See local/LICENSE.GPL-3.0 and local/SOURCE.json for the source and license. The shared protocol certificate is not an individual user's credential; personal module passwords and device certificate pins are stored only by the installing user's Home Assistant. Product names remain the property of their respective owners.
+
+The burner flame in the technical schematic uses Material Design Icons "fire" (Pictogrammers), under Apache-2.0. Source SVG and license copies are included in brand/. Changes: color, scaling and placement. The surrounding technical diagram remains original project artwork.

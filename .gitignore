@@ -1,0 +1,31 @@
+# Local environments and generated caches
+.venv/
+.venv-test/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+
+# Generated install packages
+/dist/
+
+# Private diagnostics and local archive inventory
+wolf-diagnostics*.json
+wolf-modes-diagnostics*.json
+docs/BEREINIGUNG.json
+docs/BEREINIGUNG.md
+*.tmp
+
+# Personal HA configuration and local files
+.storage/
+secrets.yaml
+configuration.yaml
+.env
+.env.*
+*.db
+*.db-*
+*.log
+*.zip
+*.zip.sha256
+backups/
+*.bak
+.vscode/

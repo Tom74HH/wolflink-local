@@ -1,0 +1,30 @@
+name: Fehler melden
+description: Einen Fehler ohne persönliche Daten beschreiben
+title: "[Fehler]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Bitte keine Zugangsdaten, privaten IP-Adressen, Gerätenummern oder unbereinigten Protokolle hochladen. Issues können nach Veröffentlichung öffentlich sichtbar sein."
+  - type: input
+    id: versions
+    attributes:
+      label: Versionen
+      description: Home Assistant und WolfLink local
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: Anlage und Firmware
+      description: Modell, ISM7 und Bedienmodul; keine Seriennummern
+  - type: textarea
+    id: problem
+    attributes:
+      label: Fehlerbeschreibung
+      description: Was passiert, und was wurde erwartet?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Schritte zum Nachstellen

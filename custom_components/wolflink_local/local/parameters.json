@@ -1,0 +1,775 @@
+{
+  "18000600001": {
+    "name": "Warmwassertemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      14
+    ],
+    "bit": null
+  },
+  "18005000001": {
+    "name": "Auslauftemperatur Warmwasser",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS100",
+    "telegrams": [
+      10009
+    ],
+    "bit": null
+  },
+  "18001000001": {
+    "name": "Durchfluss Warmwasser",
+    "unit": "l/min",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      364
+    ],
+    "bit": null
+  },
+  "18014100001": {
+    "name": "Typ",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      328
+    ],
+    "bit": null,
+    "items": {
+      "33": "CGB-2"
+    }
+  },
+  "18014200001": {
+    "name": "Betriebsart",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10067
+    ],
+    "bit": null,
+    "items": {
+      "0": "Test",
+      "1": "Start",
+      "2": "Frost Heizkreis",
+      "3": "Frost Warmwasser",
+      "4": "Schornsteinfeger",
+      "5": "Kombibetrieb",
+      "6": "Parallelbetrieb",
+      "7": "Warmwasser",
+      "8": "Warmwassernachlauf",
+      "9": "Mindest-Kombizeit",
+      "10": "Heizbetrieb",
+      "11": "Nachlauf Heizkreispumpe",
+      "12": "Frostschutz",
+      "13": "Standby",
+      "14": "Kaskadenbetrieb",
+      "15": "GLT-Betrieb",
+      "16": "Kalibration",
+      "17": "Kalibration Heizbetrieb",
+      "18": "Kalibration Warmwasserbetrieb",
+      "19": "Kalibration Kombibetrieb",
+      "20": "Warmwasser Schnellstart",
+      "21": "Externe Deaktivierung",
+      "22": "Durchfluss gering"
+    }
+  },
+  "18014300001": {
+    "name": "Brennerstatus",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10068
+    ],
+    "bit": null,
+    "items": {
+      "0": "Aus",
+      "1": "Ruhekontakt",
+      "2": "Vorspülen",
+      "3": "Zünden",
+      "4": "Stabilisierung",
+      "5": "Ein",
+      "6": "Ventilprüfung",
+      "7": "Nachspülen",
+      "8": "Softstart",
+      "9": "Taktsperre",
+      "10": "Betrieb ohne Brenner",
+      "11": "Abgasklappe",
+      "12": "Störung",
+      "13": "Gradienten Überwachung",
+      "14": "Gasdruck",
+      "15": "Spreizung hoch",
+      "16": "Spreizung KF"
+    }
+  },
+  "18015400001": {
+    "name": "Kesselsolltemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      2
+    ],
+    "bit": null
+  },
+  "18000500001": {
+    "name": "Kesseltemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      13
+    ],
+    "bit": null
+  },
+  "18001600001": {
+    "name": "Brenner",
+    "unit": null,
+    "converter": "BinaryReadOnlyConverterTemplate",
+    "type": "US",
+    "telegrams": [
+      370
+    ],
+    "bit": "3",
+    "items": {
+      "0": "Aus",
+      "1": "Ein"
+    }
+  },
+  "18001200001": {
+    "name": "Modulationsgrad",
+    "unit": "%",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      367
+    ],
+    "bit": null
+  },
+  "18011000001": {
+    "name": "Drehzahl Heizkreispumpe",
+    "unit": "%",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10071
+    ],
+    "bit": null
+  },
+  "18002800001": {
+    "name": "Speicherladepumpe",
+    "unit": null,
+    "converter": "BinaryReadOnlyConverterTemplate",
+    "type": "US",
+    "telegrams": [
+      371
+    ],
+    "bit": "7",
+    "items": {
+      "0": "Aus",
+      "1": "Ein"
+    }
+  },
+  "18002600001": {
+    "name": "3-Wege-Ventil",
+    "unit": null,
+    "converter": "BinaryReadOnlyConverterTemplate",
+    "type": "US",
+    "telegrams": [
+      371
+    ],
+    "bit": "5",
+    "items": {
+      "0": "Heizung",
+      "1": "Warmwasser"
+    }
+  },
+  "18005100001": {
+    "name": "Anlagendruck",
+    "unit": "bar",
+    "converter": "NumericConverter16Template",
+    "type": "SS100",
+    "telegrams": [
+      10010
+    ],
+    "bit": null
+  },
+  "18014500001": {
+    "name": "Außentemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      12
+    ],
+    "bit": null
+  },
+  "18000800001": {
+    "name": "Rücklauftemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      22
+    ],
+    "bit": null
+  },
+  "18003300001": {
+    "name": "Anzahl Brennerstarts",
+    "unit": null,
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      550,
+      551
+    ],
+    "bit": null
+  },
+  "18003500001": {
+    "name": "Brennerbetriebsstunden",
+    "unit": "Std",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      554
+    ],
+    "bit": null
+  },
+  "18003400001": {
+    "name": "Netzbetriebsstunden",
+    "unit": "Std",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      552,
+      553
+    ],
+    "bit": null
+  },
+  "22003400000": {
+    "name": "Partymodus",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10150
+    ],
+    "bit": null,
+    "items": {
+      "0": "Deaktiviert",
+      "1": "Aktiviert"
+    }
+  },
+  "22003500000": {
+    "name": "Urlaubsmodus",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10145
+    ],
+    "bit": null,
+    "items": {
+      "0": "Deaktiviert",
+      "1": "Aktiviert"
+    }
+  },
+  "34002600000": {
+    "name": "Sollwertkorrektur",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10165
+    ],
+    "bit": null
+  },
+  "34003500000": {
+    "name": "Tagtemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10109
+    ],
+    "bit": null
+  },
+  "34002900000": {
+    "name": "Programmwahl",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10100
+    ],
+    "bit": null,
+    "items": {
+      "0": "Standby",
+      "1": "Auto",
+      "2": "Permanent",
+      "3": "Sparen"
+    }
+  },
+  "34000000000": {
+    "name": "Raumtemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10164
+    ],
+    "bit": null
+  },
+  "34000100000": {
+    "name": "Gemittelte Außentemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10179
+    ],
+    "bit": null
+  },
+  "34001100000": {
+    "name": "Vorlauftemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10119
+    ],
+    "bit": null
+  },
+  "34000400000": {
+    "name": "Anforderung Heizkreis",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10155
+    ],
+    "bit": null,
+    "items": {
+      "0": "Initialisierung",
+      "1": "Deaktiviert",
+      "2": "Estrichtrocknung",
+      "3": "Schornsteinfeger",
+      "4": "Telefonfernschalter",
+      "5": "Partymodus",
+      "6": "Urlaubsmodus",
+      "7": "Automatik ein",
+      "8": "Automatik aus",
+      "9": "Permanentbetrieb",
+      "10": "Sparbetrieb",
+      "11": "Standby",
+      "12": "Externe Deaktivierung",
+      "13": "SmartHome",
+      "14": "Automatik Kühlen Ein",
+      "15": "Automatik Kühlen Aus",
+      "16": "Permanent Kühlen"
+    }
+  },
+  "34000500000": {
+    "name": "Heizkreis Status",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10156
+    ],
+    "bit": null,
+    "items": {
+      "0": "Aus",
+      "1": "Heizbetrieb",
+      "2": "Absenkbetrieb",
+      "3": "Eco",
+      "4": "Absenkstop",
+      "5": "AT Abschaltung",
+      "6": "RT Abschaltung",
+      "7": "AT Frostschutz",
+      "8": "RT Frostschutz",
+      "9": "SmartHome",
+      "10": "Warmwasservorrang",
+      "11": "Kühlbetrieb",
+      "12": "TPW ausgelöst",
+      "13": "Heizvorrang vor Kühlen"
+    }
+  },
+  "34001600000": {
+    "name": "Zeitprogramm",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10159
+    ],
+    "bit": null,
+    "items": {
+      "1": "1",
+      "2": "2",
+      "3": "3"
+    }
+  },
+  "35000400000": {
+    "name": "Zeitprogramm",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10158
+    ],
+    "bit": null,
+    "items": {
+      "1": "1",
+      "2": "2",
+      "3": "3"
+    }
+  },
+  "35000900000": {
+    "name": "Warmwassersolltemperatur eingestellt",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      19
+    ],
+    "bit": null
+  },
+  "35001200000": {
+    "name": "Programmwahl",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10101
+    ],
+    "bit": null,
+    "items": {
+      "0": "Standby",
+      "1": "Auto",
+      "2": "Permanent"
+    }
+  },
+  "35000100000": {
+    "name": "Warmwasser Status",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10134
+    ],
+    "bit": null,
+    "items": {
+      "0": "Deaktiviert",
+      "1": "Initialisierung",
+      "2": "Antilegionellenfunktion",
+      "3": "Fernschalter ein",
+      "4": "1x Warmwasser",
+      "5": "Ein",
+      "6": "Bereit, keine Ladung",
+      "7": "Solarbetrieb",
+      "8": "Reduzierter Betrieb",
+      "9": "Aus",
+      "10": "Ein",
+      "11": "Bereit, keine Ladung",
+      "12": "Standby",
+      "13": "SmartHome",
+      "14": "SmartGrid"
+    }
+  },
+  "22004200000": {
+    "name": "1x Warmwasser",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10117
+    ],
+    "bit": null,
+    "items": {
+      "0": "Aus",
+      "1": "Ein"
+    }
+  },
+  "18002500001": {
+    "name": "Heizkreispumpe",
+    "unit": null,
+    "converter": "BinaryReadOnlyConverterTemplate",
+    "type": "US",
+    "telegrams": [
+      371
+    ],
+    "bit": "4",
+    "items": {
+      "0": "Aus",
+      "1": "Ein"
+    }
+  },
+  "18005400001": {
+    "name": "Abgastemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10013
+    ],
+    "bit": null
+  },
+  "18015500001": {
+    "name": "Warmwassersolltemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      3
+    ],
+    "bit": null
+  },
+  "35001400000": {
+    "name": "Warmwassersolltemperatur eingestellt",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      19
+    ],
+    "bit": null
+  },
+  "35001500000": {
+    "name": "Programmwahl",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10101
+    ],
+    "bit": null,
+    "items": {
+      "0": "Standby",
+      "1": "Auto",
+      "2": "Permanent"
+    }
+  },
+  "18018000001": {
+    "name": "erweiterte Statistik aktiv",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10888
+    ],
+    "bit": null,
+    "items": {
+      "0": "Aus",
+      "1": "Ein"
+    }
+  },
+  "34003100000": {
+    "name": "Sollwertkorrektur",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10165
+    ],
+    "bit": null
+  },
+  "34003200000": {
+    "name": "Programmwahl",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10100
+    ],
+    "bit": null,
+    "items": {
+      "0": "Standby",
+      "1": "Auto",
+      "2": "Permanent",
+      "3": "Sparen"
+    }
+  },
+  "34000900000": {
+    "name": "Tagtemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10109
+    ],
+    "bit": null
+  },
+  "34004000000": {
+    "name": "Tagtemperatur",
+    "unit": "°C",
+    "converter": "NumericConverter16Template",
+    "type": "SS10",
+    "telegrams": [
+      10109
+    ],
+    "bit": null
+  },
+  "18018100001": {
+    "name": "Energiemenge HZ",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      12399,
+      12400
+    ],
+    "bit": null
+  },
+  "18018200001": {
+    "name": "Energiemenge WW",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      12410,
+      12411
+    ],
+    "bit": null
+  },
+  "18018300001": {
+    "name": "Verbrauch aktueller Tag",
+    "unit": "kWh",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10881
+    ],
+    "bit": null
+  },
+  "18018400001": {
+    "name": "Erzeugte Wärmemenge aktueller Tag",
+    "unit": "kWh",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10882
+    ],
+    "bit": null
+  },
+  "18018500001": {
+    "name": "Verbrauch Vortag",
+    "unit": "kWh",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      13048
+    ],
+    "bit": null
+  },
+  "18018600001": {
+    "name": "Erzeugte Wärmemenge Vortag",
+    "unit": "kWh",
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      13049
+    ],
+    "bit": null
+  },
+  "18018700001": {
+    "name": "Verbrauch aktuelles Jahr",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      10885,
+      10886
+    ],
+    "bit": null
+  },
+  "18018800001": {
+    "name": "Erzeugte Wärmemenge aktuelles Jahr",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      10891,
+      10892
+    ],
+    "bit": null
+  },
+  "18018900001": {
+    "name": "Verbrauch Vorjahr",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      10893,
+      10894
+    ],
+    "bit": null
+  },
+  "18019000001": {
+    "name": "Erzeugte Wärmemenge Vorjahr",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      10895,
+      10896
+    ],
+    "bit": null
+  },
+  "18019100001": {
+    "name": "Verbrauch Vorvorjahr",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      10897,
+      10898
+    ],
+    "bit": null
+  },
+  "18019200001": {
+    "name": "Erzeugte Wärmemenge Vorvorjahr",
+    "unit": "kWh",
+    "converter": "NumericConverter32Template",
+    "type": "UINT32",
+    "telegrams": [
+      10899,
+      10900
+    ],
+    "bit": null
+  },
+  "18003200001": {
+    "name": "Firmware Heizgerät",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "SS100",
+    "telegrams": [
+      410
+    ],
+    "bit": null
+  },
+  "22013400000": {
+    "name": "Firmware BM-2",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "SS100",
+    "telegrams": [
+      10185
+    ],
+    "bit": null
+  },
+  "18014800001": {
+    "name": "Anzahl Netz-Starts",
+    "unit": null,
+    "converter": "NumericConverter16Template",
+    "type": "US",
+    "telegrams": [
+      10078
+    ],
+    "bit": null
+  }
+}

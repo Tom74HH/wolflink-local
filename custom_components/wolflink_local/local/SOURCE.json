@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/zivillian/ism7mqtt",
+  "protocol": "https://github.com/zivillian/ism7mqtt/blob/master/PROTOCOL.md",
+  "retrieved": "2026-10-16",
+  "license": "GPL-3.0",
+  "additional_wire_reference": {
+    "package": "https://www.nuget.org/packages/smartset.net/4.4.5",
+    "classes": ["Service03F3Read", "Service03F3Write", "Service03F3Response", "Timeprog03F1ConverterTemplate", "BM2DateConverterTemplate", "BM2TimeConverterTemplate"],
+    "note": "Wire tags, addressing and data layouts cross-checked; no vendor binaries distributed."
+  },
+  "material": [
+    "ISM7 protocol descriptions and conversion rules",
+    "Common protocol client certificate from src/ism7ssl/Resources/client.pfx",
+    "Selected parameter names, types and telegram mappings from src/ism7mqtt/Resources"
+  ]
+}
