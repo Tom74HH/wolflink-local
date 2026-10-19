@@ -88,3 +88,8 @@ Das kombinierte Paket steht unter GPL-3.0; bestehende Apache-2.0-Hinweise bleibe
 Die zusätzlichen Tages- und Jahreswerte sind rechnerische WOLF-Anlagenwerte und noch nicht am BM-2 gegengeprüft; Details und Quelle stehen in BESCHREIBUNG.md.
 
 Ausschließlich lokale ISM7-Anbindung. Keine zusätzliche Python-Abhängigkeit und kein WOLF-Konto erforderlich. Geprüft mit Home Assistant 2026.10.1 und CGW-2/CGB-2 mit BM-2. Modul-IP und eigenes Passwort bei der Einrichtung angeben. Ordner und Integrationsdomain heißen `wolflink_local`.
+## Entwicklung unterstützen
+
+WolfLink local bleibt kostenlos und Open Source. Wenn dir das Projekt gefällt und du die Weiterentwicklung unterstützen möchtest, freue ich mich über einen kleinen Kaffee. Die Unterstützung ist freiwillig und mit keinen zusätzlichen Funktionen oder Supportzusagen verbunden.
+
+[☕ Tom74HH über GitHub Sponsors unterstützen](https://github.com/sponsors/Tom74HH)
