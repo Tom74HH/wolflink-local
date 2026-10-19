@@ -9,6 +9,22 @@ Datenschutz und sichere Fehlermeldungen: [PRIVACY.md](PRIVACY.md).
 
 Ausführliche Anleitung: [INSTALLATION.md](INSTALLATION.md). Funktionen und Grenzen: [BESCHREIBUNG.md](BESCHREIBUNG.md).
 
+## Einblicke in die Oberfläche
+
+Die Screenshots zeigen die Bedienung und die Anlagenübersicht einer Beispielansicht. Die verfügbaren Messwerte und Funktionen hängen von der angeschlossenen Anlage ab. Browseradresse und persönliche Home-Assistant-Navigation sind nicht abgebildet.
+
+### Bedienung
+
+Temperaturen, Programmwahl, Zeitprogramme und Betriebszustände für Heizung und Warmwasser.
+
+![Bedienung für Heizung und Warmwasser](docs/images/bedienung.png)
+
+### Anlagenübersicht
+
+Eigenes Funktionsschema mit Messwerten, Anlagenstatus und Geräteinformationen.
+
+![Anlagenübersicht mit Funktionsschema und Statuswerten](docs/images/uebersicht.png)
+
 ## Installation auf einem anderen System
 
 1. Den vollständigen Ordner `wolflink_local` nach `/config/custom_components/` kopieren. Ergebnis: `/config/custom_components/wolflink_local/manifest.json`. Nicht doppelt verschachteln.
